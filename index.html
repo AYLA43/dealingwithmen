@@ -1,0 +1,802 @@
+Whop sales page · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dealing With Men — Ryan Cole</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap');
+ 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --red: #CC0000;
+    --dark-red: #990000;
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --gray: #888888;
+    --light: #f5f5f5;
+    --card: #f9f9f9;
+  }
+ 
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+ 
+  /* HERO */
+  .hero {
+    background: var(--black);
+    padding: 80px 24px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: var(--red);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: var(--red);
+  }
+ 
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+ 
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 12vw, 90px);
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+ 
+  .hero-title span {
+    color: var(--red);
+    display: block;
+    font-size: clamp(72px, 18vw, 130px);
+  }
+ 
+  .hero-divider {
+    width: 80px;
+    height: 3px;
+    background: var(--red);
+    margin: 24px auto;
+  }
+ 
+  .hero-sub {
+    font-size: clamp(16px, 3vw, 20px);
+    color: #cccccc;
+    max-width: 520px;
+    margin: 0 auto 36px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+ 
+  .hero-cta {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 800;
+    padding: 18px 48px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .hero-cta:hover { background: var(--dark-red); }
+ 
+  .hero-trust {
+    margin-top: 20px;
+    color: var(--gray);
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-trust span::before {
+    content: '✓ ';
+    color: var(--red);
+  }
+ 
+  /* HOOK SECTION */
+  .hook {
+    background: var(--white);
+    padding: 70px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+ 
+  .hook-headline {
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+ 
+  .hook-headline em {
+    color: var(--red);
+    font-style: normal;
+  }
+ 
+  .hook p {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+ 
+  .hook-bold {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--black);
+    margin: 24px 0 16px;
+  }
+ 
+  /* AUTHOR CREDIBILITY */
+  .author {
+    background: var(--black);
+    padding: 60px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .author::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--red);
+  }
+ 
+  .author-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+ 
+  .author-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--white);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+ 
+  .author-line {
+    width: 60px;
+    height: 2px;
+    background: var(--red);
+    margin: 0 auto 24px;
+  }
+ 
+  .author-bio {
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #bbbbbb;
+    line-height: 1.8;
+  }
+ 
+  .author-bio strong {
+    color: var(--red);
+  }
+ 
+  /* WHAT CHANGES */
+  .changes {
+    background: var(--light);
+    padding: 70px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+ 
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+ 
+  .section-title {
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 32px;
+  }
+ 
+  .changes-grid {
+    display: grid;
+    gap: 20px;
+  }
+ 
+  .change-card {
+    background: var(--white);
+    border-left: 4px solid var(--red);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+  }
+ 
+  .change-card h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+ 
+  .change-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+  }
+ 
+  /* WHAT'S INSIDE */
+  .inside {
+    background: var(--white);
+    padding: 70px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+ 
+  .part-card {
+    border: 2px solid var(--black);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+ 
+  .part-header {
+    background: var(--black);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+ 
+  .part-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--red);
+    text-transform: uppercase;
+    min-width: 60px;
+  }
+ 
+  .part-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.3;
+  }
+ 
+  .part-body {
+    padding: 20px 24px;
+    background: var(--card);
+  }
+ 
+  .part-desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+    font-style: italic;
+  }
+ 
+  .chapter-list {
+    list-style: none;
+  }
+ 
+  .chapter-list li {
+    font-size: 14px;
+    color: #333;
+    padding: 8px 0;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+ 
+  .chapter-list li:last-child { border-bottom: none; }
+ 
+  .chapter-list li::before {
+    content: '→';
+    color: var(--red);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+ 
+  /* SCRIPTS SECTION */
+  .scripts {
+    background: var(--black);
+    padding: 70px 24px;
+    position: relative;
+  }
+  .scripts::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--red);
+  }
+ 
+  .scripts-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+ 
+  .scripts .section-label { margin-bottom: 12px; }
+ 
+  .scripts .section-title {
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+ 
+  .scripts-sub {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+ 
+  .script-items {
+    display: grid;
+    gap: 16px;
+  }
+ 
+  .script-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid var(--red);
+    padding: 18px 20px;
+    border-radius: 0 4px 4px 0;
+  }
+ 
+  .script-item h4 {
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+ 
+  .script-item p {
+    color: #888;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+ 
+  /* QUOTE PULLOUT */
+  .pullout {
+    background: var(--red);
+    padding: 60px 24px;
+    text-align: center;
+  }
+ 
+  .pullout-text {
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: 900;
+    color: var(--white);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.4;
+  }
+ 
+  /* FAQ */
+  .faq {
+    background: var(--white);
+    padding: 70px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+ 
+  .faq-item {
+    border-bottom: 2px solid var(--light);
+    padding: 24px 0;
+  }
+ 
+  .faq-item:first-of-type { border-top: 2px solid var(--light); }
+ 
+  .faq-q {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+ 
+  .faq-q::before {
+    content: 'Q';
+    background: var(--red);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 900;
+    padding: 3px 7px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+ 
+  .faq-a {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    padding-left: 36px;
+  }
+ 
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--black);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: var(--red);
+  }
+ 
+  .final-cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 8vw, 68px);
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+ 
+  .final-cta-title span { color: var(--red); }
+ 
+  .final-price {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--white);
+    margin: 20px 0;
+  }
+ 
+  .final-price sup {
+    font-size: 24px;
+    vertical-align: super;
+  }
+ 
+  .final-cta-btn {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 800;
+    padding: 20px 60px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    margin-bottom: 20px;
+  }
+  .final-cta-btn:hover { background: var(--dark-red); }
+ 
+  .final-trust {
+    color: var(--gray);
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .final-trust span::before { content: '✓ '; color: var(--red); }
+ 
+  .footer {
+    background: var(--black);
+    border-top: 1px solid #222;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+  }
+ 
+  @media (max-width: 480px) {
+    .hero-trust { flex-direction: column; gap: 10px; align-items: center; }
+    .final-trust { flex-direction: column; gap: 10px; align-items: center; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">By Ryan Cole</p>
+  <h1 class="hero-title">
+    DEALING WITH
+    <span>men.</span>
+  </h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">How to get his attention, effort and commitment — without chasing, over-explaining, or losing yourself.</p>
+  <a href="https://whop.com/checkout/plan_frMRnnKK97TBi" class="hero-cta">Get The Book — $35</a>
+  <div class="hero-trust">
+    <span>Instant Download</span>
+    <span>365-Day Money Back</span>
+    <span>Read in One Sitting</span>
+  </div>
+ 
+  <!-- BOOK COVER #1 — Replace src with your image -->
+  <div style="margin-top:48px; display:flex; justify-content:center;">
+    <div style="width:200px; border-radius:8px; overflow:hidden; box-shadow:0 20px 60px rgba(204,0,0,0.35), 0 8px 24px rgba(0,0,0,0.7); border:2px solid #CC0000;">
+      <img src="YOUR_COVER_IMAGE.jpg" alt="Dealing With Men Book Cover" style="width:100%; display:block;"
+        onerror="this.style.display='none'; this.parentElement.style.background='#1a1a1a'; this.parentElement.innerHTML='<div style=\'padding:50px 24px; text-align:center;\'><div style=\'font-family:Arial,sans-serif; font-size:22px; font-weight:900; color:#fff; letter-spacing:2px; line-height:1.1;\'>DEALING<br>WITH<br><span style=\'color:#CC0000; font-size:36px;\'>men.</span></div><div style=\'width:40px;height:2px;background:#CC0000;margin:16px auto;\'></div><div style=\'font-size:10px;color:#666;letter-spacing:2px;\'>RYAN COLE</div></div>'"
+      />
+    </div>
+  </div>
+ 
+</section>
+ 
+<!-- HOOK -->
+<section style="background:#fff; padding: 70px 24px;">
+<div class="hook" style="padding:0; margin:0 auto;">
+  <h2 class="hook-headline">He texted "hey" after 9 days. <em>You hated how fast you replied.</em></h2>
+  <p>You hated the relief. The way your whole chest unclenched at three letters from a man who couldn't be bothered to write a full sentence.</p>
+  <p>You'd checked your phone a hundred times. Googled "why do guys go cold" at 2am. And now he's back — no explanation — and somehow you're the one trying to figure out what to say.</p>
+  <p>You give your friends perfect advice in situations like this. You'd never tell them to wait around for someone who ghosts for 9 days and texts "hey."</p>
+  <p class="hook-bold">But here you are. Drafting your fourth reply. Spiraling.</p>
+  <p>You're not stupid. You're not weak. You're just missing information.</p>
+  <p><strong>This book is that information.</strong></p>
+</div>
+</section>
+ 
+<!-- AUTHOR -->
+<section class="author">
+  <p class="author-label">Written By</p>
+  <h2 class="author-name">RYAN COLE</h2>
+  <div class="author-line"></div>
+  <p class="author-bio">
+    I used to be the guy who texted "hey" after a week of silence. Who said "let's hang out soon" and never made plans. Who gave just enough attention to keep things interesting — but never enough to make anyone feel safe.<br><br>
+    I kept doing it <strong>because it worked.</strong><br><br>
+    Until I met a woman who didn't play along. When I went quiet, she didn't chase. Didn't panic. And I couldn't stop thinking about her. I spent six years figuring out why — and I put everything I found in this book.
+  </p>
+</section>
+ 
+<!-- WHAT CHANGES -->
+<section style="background: var(--light); padding: 70px 24px;">
+<div style="max-width:680px; margin:0 auto;">
+  <p class="section-label">After Reading This</p>
+  <h2 class="section-title">Three things that change immediately.</h2>
+  <div class="changes-grid">
+    <div class="change-card">
+      <h3>One: You stop checking your phone.</h3>
+      <p>Not from willpower — because the anxiety that made you check won't be there anymore. When you understand what his silence actually means, there's nothing left to obsess over.</p>
+    </div>
+    <div class="change-card">
+      <h3>Two: You know what to say.</h3>
+      <p>In 30 seconds instead of spiraling for an hour. You'll understand what your words actually communicate underneath — what pulls him closer and what pushes him away.</p>
+    </div>
+    <div class="change-card">
+      <h3>Three: You stop wasting months.</h3>
+      <p>You'll know in week one if he's serious. Sometimes in the first conversation. And you'll walk away clean — without the endless "what ifs."</p>
+    </div>
+  </div>
+</div>
+</section>
+ 
+<!-- WHAT'S INSIDE -->
+<section class="inside" style="max-width:680px; margin:0 auto; padding: 70px 24px;">
+  <p class="section-label">What's Inside</p>
+  <h2 class="section-title">4 Parts. 13 Chapters. Zero fluff.</h2>
+ 
+  <div class="part-card">
+    <div class="part-header">
+      <span class="part-num">Part #1</span>
+      <span class="part-title">Why You Can't Stop Thinking About Him</span>
+    </div>
+    <div class="part-body">
+      <p class="part-desc">3 chapters on the psychology of attraction — and why his hot-and-cold behavior feels impossible to shake.</p>
+      <ul class="chapter-list">
+        <li>Why his inconsistency makes you MORE attached — and the exact brain mechanism keeping you hooked</li>
+        <li>Why you're not actually attached to him — you're attached to the cycle of anticipation, absence, and relief</li>
+        <li>The one rule that stops the chase instantly — before you say a single word to him</li>
+      </ul>
+    </div>
+  </div>
+ 
+  <div class="part-card">
+    <div class="part-header">
+      <span class="part-num">Part #2</span>
+      <span class="part-title">What Talking Is Actually For</span>
+    </div>
+    <div class="part-body">
+      <p class="part-desc">3 chapters that dismantle everything you've been taught about "communication" in dating.</p>
+      <ul class="chapter-list">
+        <li>Why "saying the right thing" has never worked — and what actually creates forward movement</li>
+        <li>The difference between creating connection and giving away your position (they sound identical — the energy underneath is not)</li>
+        <li>When your words pull him closer vs push him away — and how to tell before you hit send</li>
+      </ul>
+    </div>
+  </div>
+ 
+  <div class="part-card">
+    <div class="part-header">
+      <span class="part-num">Part #3</span>
+      <span class="part-title">Early Dating That Sorts Fast</span>
+    </div>
+    <div class="part-body">
+      <p class="part-desc">Practical frameworks for the first conversations, first dates, and early texts — before you're emotionally invested.</p>
+      <ul class="chapter-list">
+        <li>How to know if he's serious before you're emotionally invested</li>
+        <li>The difference between interest and availability — and why chemistry means nothing without capacity</li>
+        <li>How to respond so his effort becomes impossible to miss (or his absence impossible to ignore)</li>
+      </ul>
+    </div>
+  </div>
+ 
+  <div class="part-card">
+    <div class="part-header">
+      <span class="part-num">Part #4</span>
+      <span class="part-title">The Scripts</span>
+    </div>
+    <div class="part-body">
+      <p class="part-desc">Word-for-word responses for the situations that make you spiral at 2am.</p>
+      <ul class="chapter-list">
+        <li>What to say when he goes cold after things were going well</li>
+        <li>What to say when he cancels last minute (without looking desperate or bitter)</li>
+        <li>What to say when he breadcrumbs you, texts late at night, or wants constant texting with no plans</li>
+        <li>What to say when you need to walk away — and actually mean it</li>
+      </ul>
+    </div>
+  </div>
+</section>
+ 
+<!-- SCRIPTS HIGHLIGHT -->
+<section class="scripts">
+  <div class="scripts-inner">
+    <p class="section-label">The Scripts Section</p>
+    <h2 class="section-title" style="color:#fff;">Exact words. For every situation.</h2>
+    <p class="scripts-sub">No more staring at your screen. No more asking your friends. No more sending a message and immediately regretting it.</p>
+    <div class="script-items">
+      <div class="script-item">
+        <h4>When he comes back after going silent</h4>
+        <p>Three different responses depending on how long he was gone and what you want the outcome to be.</p>
+      </div>
+      <div class="script-item">
+        <h4>When he cancels last minute</h4>
+        <p>How to respond without looking bitter — but also without letting it slide like it doesn't matter.</p>
+      </div>
+      <div class="script-item">
+        <h4>When he's texting constantly but making no plans</h4>
+        <p>The exact message that separates men who are serious from men who are just comfortable.</p>
+      </div>
+      <div class="script-item">
+        <h4>When you need to walk away</h4>
+        <p>One message. No drama. No waiting to see if he'll stop you. Just clean and clear.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- PULLOUT QUOTE -->
+<section class="pullout">
+  <p class="pullout-text">"You were never bad at this. You were just missing information."</p>
+</section>
+ 
+<!-- BOOK COVER #2 — Middle of page -->
+<section style="background:#0a0a0a; padding:60px 24px; text-align:center;">
+  <p style="font-size:11px; font-weight:700; letter-spacing:3px; color:#CC0000; text-transform:uppercase; margin-bottom:24px;">The Book</p>
+  <div style="display:flex; justify-content:center; margin-bottom:32px;">
+    <div style="width:220px; border-radius:8px; overflow:hidden; box-shadow:0 24px 70px rgba(204,0,0,0.4), 0 10px 30px rgba(0,0,0,0.8); border:2px solid #CC0000;">
+      <img src="YOUR_COVER_IMAGE.jpg" alt="Dealing With Men Book Cover" style="width:100%; display:block;"
+        onerror="this.style.display='none'; this.parentElement.style.background='#1a1a1a'; this.parentElement.innerHTML='<div style=\'padding:56px 28px; text-align:center;\'><div style=\'font-family:Arial,sans-serif; font-size:24px; font-weight:900; color:#fff; letter-spacing:2px; line-height:1.1;\'>DEALING<br>WITH<br><span style=\'color:#CC0000; font-size:42px;\'>men.</span></div><div style=\'width:40px;height:2px;background:#CC0000;margin:18px auto;\'></div><div style=\'font-size:10px;color:#666;letter-spacing:2px;\'>RYAN COLE</div></div>'"
+      />
+    </div>
+  </div>
+  <p style="color:#888; font-size:15px; margin-bottom:24px; max-width:400px; margin-left:auto; margin-right:auto; line-height:1.7;">Everything you needed to know about men — in one book. Clear. Direct. No fluff.</p>
+  <a href="#" class="hero-cta" style="font-size:15px; padding:16px 40px;">Get Instant Access — $35</a>
+</section>
+ 
+<!-- FAQ -->
+<section style="background:#fff; padding: 70px 24px;">
+<div class="faq" style="padding:0; margin:0 auto;">
+  <p class="section-label">Common Questions</p>
+  <h2 class="section-title">Everything you want to know.</h2>
+ 
+  <div class="faq-item">
+    <p class="faq-q">I've tried everything. Will this actually work?</p>
+    <p class="faq-a">Most women who feel this way have been trying to fix the wrong thing — their words, their timing, their tone. This book doesn't give you better scripts to fix a broken dynamic. It shows you how to see the dynamic clearly, and respond from a place of calm instead of anxiety. That shift alone changes everything.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">What if he never comes back?</p>
+    <p class="faq-a">Then you'll have the clarity you needed weeks or months ago — without wasting more time waiting. This book isn't about getting a specific man back. It's about understanding what's actually happening so you can make a real decision. Some women finish it and realize they didn't want him back. They wanted to stop feeling this way. That's what changes.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">Is this manipulative?</p>
+    <p class="faq-a">No. Understanding how attraction works isn't manipulation — it's clarity. This book doesn't teach you to pretend, perform, or trick anyone. It teaches you to stop abandoning your own position every time he creates distance. That's not a game. That's self-respect.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">Is this just another "play hard to get" book?</p>
+    <p class="faq-a">No. Playing hard to get is a performance. This book is about actually having a life, actually having standards, and actually not being available for situations that don't work for you. The difference is real — and men feel it immediately.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">I'm already deep in a situation. Will this still help?</p>
+    <p class="faq-a">Yes — go straight to Part 4. The scripts are written for exactly this: when you're already attached, already in it, and you need to know what to say right now. Start there. Read the rest after.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">What if I already know all this but can't seem to apply it?</p>
+    <p class="faq-a">Knowing and applying are different problems. Most women know they shouldn't chase — and they chase anyway. This book doesn't just tell you what to do. It explains the psychology underneath your own behavior, which is what actually makes the pattern stop. Understanding why you do it is what gives you the ability to change it.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">How long is the book?</p>
+    <p class="faq-a">Most women read it in one sitting — 2 to 3 hours. No filler. No padding. Just what you actually need to know, written to be read on your phone if that's where you are right now.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">What format do I receive?</p>
+    <p class="faq-a">Instant PDF download. Works on your phone, tablet, or laptop. You get access the moment your payment is confirmed — no waiting, no shipping.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">What if I want a refund?</p>
+    <p class="faq-a">365-day money back guarantee. No questions asked. If you read it and feel it didn't help, email for a full refund. That's how confident we are in this.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <p class="faq-q">Is this written by a real person?</p>
+    <p class="faq-a">Yes. Ryan Cole spent years on the other side of these situations — being the man who went quiet, who gave just enough, who kept women in cycles without ever fully committing. He eventually understood why he did it. This book is what he found — not from research, but from lived experience.</p>
+  </div>
+ 
+</div>
+</section>
+ 
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2 class="final-cta-title">DEALING WITH <span>men.</span></h2>
+  <p style="color:#888; font-size:15px; margin-bottom:8px;">Get immediate access</p>
+  <div class="final-price"><sup>$</sup>35</div>
+  <a href="https://whop.com/checkout/plan_frMRnnKK97TBi" class="final-cta-btn">Get The Book Now →</a>
+  <div class="final-trust">
+    <span>Instant PDF Download</span>
+    <span>365-Day Refund</span>
+    <span>Secure Checkout</span>
+  </div>
+</section>
+ 
+<div class="footer">
+  © 2025 Dealing With Men by Ryan Cole. All rights reserved.
+</div>
+ 
+</body>
+</html>
